@@ -23,5 +23,27 @@ IMAGE_TO_DISPLAY = 10
 # read training data from CSV file 
 data = pd.read_csv('../data/kaggle/train.csv')
 
-print('data({0[0]},{0[1]})'.format(data.shape))
-print (data.head())
+images = data.iloc[:,1:].values
+images = images.astype(np.float)
+
+# convert from [0:255] => [0.0:1.0]
+images = np.multiply(images, 1.0 / 255.0)
+
+image_size = images.shape[1]
+image_width = image_height = np.ceil(np.sqrt(image_size)).astype(np.uint8)
+image_size = images.shape[1]
+
+# in this case all images are square
+image_width = image_height = np.ceil(np.sqrt(image_size)).astype(np.uint8)
+
+# display image
+def display(img):
+    
+    # (784) => (28,28)
+    one_image = img.reshape(image_width,image_height)
+    
+    plt.axis('off')
+    plt.imshow(one_image, cmap=cm.binary)
+
+# output image     
+display(images[IMAGE_TO_DISPLAY])
