@@ -7,7 +7,7 @@ def convert(file):
 		f.seek(0)
 		f.truncate()
 		for line in lines:
-			f.write(line.replace(" : ", ", "))
+			f.write(line.replace(" ", ", "))
 
 if __name__=="__main__":
 	parser = argparse.ArgumentParser(description="Process a filepath.")
