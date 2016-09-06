@@ -3,6 +3,7 @@ import os, argparse
 def convert(file):
 	with(open(file, 'r+')) as f:
 		lines = f.readlines()
+		# The next two lines are an alternative to closing and reopening the original file.
 		f.seek(0)
 		f.truncate()
 		for line in lines:
