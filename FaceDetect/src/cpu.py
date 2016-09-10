@@ -2,10 +2,6 @@
 import numpy as np
 import pandas as pd
 
-%matplotlib inline
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-
 import tensorflow as tf
 
 sess = tf.InteractiveSession()
