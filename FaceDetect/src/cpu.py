@@ -28,6 +28,9 @@ images = images.astype(np.float)
 # convert from [0:255] => [0.0:1.0]
 images = np.multiply(images, 1.0 / 255.0)
 
+image_size = images.shape[1]
+image_width = image_height = np.ceil(np.sqrt(image_size)).astype(np.uint8)
+
 labels_flat = data[[0]].values.ravel()
 
 # number of unique labels are tabulated. In this case, 1 and 0 = 2.
